@@ -7,6 +7,7 @@
 <style>
 	body{
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 		align-items: center;
 		height: 100vh;
@@ -14,16 +15,20 @@
 </style>
 
 <body>
-
+	<h1 id="headingTotal">0</h1>
 	<input type="text" id="inputAmount"></input>
 	<button id="btnAddExpense">+</button>
 
 	<script>
-	//read valur form inputAmount
-
+	
+	//get the heading element
+	const headingEl = document.querySelector("#headingTotal");
 
 	//init value from inputAmount
 	let totalExpense=0;
+
+	//set the heading element to totalExpense
+	headingEl.textContent = totalExpense;
 	
 	//onButtonClick add inputAmount to totalExpense
 	function addExpeneseToTotal(){
@@ -39,6 +44,9 @@
 		//add that value to total Expense
 		totalExpense = totalExpense+expense;
 		console.log({totalExpense});
+
+		//set the heading element to totalExpense
+		headingEl.textContent = totalExpense;
 	}
 	
 	//Get the btn element
